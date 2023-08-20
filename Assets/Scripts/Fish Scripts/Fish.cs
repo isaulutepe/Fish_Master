@@ -13,6 +13,7 @@ public class Fish : MonoBehaviour
     private float _screenLeft;
     private Tweener _tweener;
 
+
     public Fish.FishType Type
     {
         get
@@ -24,16 +25,15 @@ public class Fish : MonoBehaviour
             type = value;
             _coll.radius = type.colliderRadius;
             _spriteRenderer.sprite = type.sprite;
+            //Debug.Log("Sprite changed to: " + type.sprite.name); // Debug mesajý eklendi
         }
     }
-
 
     private void Awake()
     {
         _coll = GetComponent<CircleCollider2D>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _screenLeft = Camera.main.ScreenToWorldPoint(Vector3.zero).x;
-        ResetFish();
     }
     public void ResetFish()
     {
@@ -41,8 +41,10 @@ public class Fish : MonoBehaviour
         {
             _tweener.Kill(false);
         }
+
         float num = UnityEngine.Random.Range(type.minLength, type.maxLength);
         _coll.enabled = true;
+
         Vector3 position = transform.position;
         position.y = num;
         position.x = _screenLeft;
@@ -54,6 +56,7 @@ public class Fish : MonoBehaviour
 
         float num3 = 3;
         float delay = UnityEngine.Random.Range(0, 2 * num3);
+
         _tweener = transform.DOMove(v, num3, false).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.Linear).SetDelay(delay).OnStepComplete(
             delegate
             {

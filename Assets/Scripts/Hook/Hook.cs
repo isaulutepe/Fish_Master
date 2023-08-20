@@ -19,13 +19,14 @@ public class Hook : MonoBehaviour
     private bool _canMove;
 
     //List<Fish> -->Fish scripti eklendiðinde düzeltilecek.
+    private List<Fish> _hookedFishes;
     private Tweener _cameraTween;
 
     private void Awake()
     {
         _mainCamera = Camera.main;
         _coll = GetComponent<Collider2D>();
-
+        _hookedFishes = new List<Fish>();
     }
     private void Start()
     {
@@ -69,6 +70,7 @@ public class Hook : MonoBehaviour
         });
         _coll.enabled = false;
         _canMove = true;
+        _hookedFishes.Clear();
     }
 
     private void StopFishing()
@@ -80,13 +82,42 @@ public class Hook : MonoBehaviour
             if (_mainCamera.transform.position.y >= -11)
             {
                 transform.SetParent(null);
-                transform.position=new Vector2(transform.position.x, -6);
+                transform.position = new Vector2(transform.position.x, -6);
             }
         }).OnComplete(delegate
         {
             transform.position = Vector2.down * 6;
             _coll.enabled = true;
-            int num = 0; //Balýklarý sýfýrlamak için.
+            float num = 0;
+            for (int i = 0; i < _hookedFishes.Count; i++)
+            {
+                _hookedFishes[i].transform.SetParent(null);
+                _hookedFishes[i].ResetFish();
+                num += _hookedFishes[i].Type.price;
+            }
         });
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Fish") && _fishCount != _strength)
+        {
+            _fishCount++;
+            Fish component = collision.GetComponent<Fish>();
+            component.Hooked();
+            _hookedFishes.Add(component);
+            collision.transform.SetParent(transform);// Balýklarýn transformunu kanca yaptýk.
+            collision.transform.position = hookTransform.position;
+            collision.transform.rotation = hookTransform.rotation;
+            collision.transform.localScale = Vector3.one;
+            collision.transform.DOShakeRotation(5, Vector3.forward * 45, 10, 90, false).SetLoops(1, LoopType.Yoyo).OnComplete(delegate
+            {
+                collision.transform.rotation = Quaternion.identity;
+
+            });
+            if (_fishCount == _strength)
+            {
+                StopFishing();
+            }
+        }
     }
 }
