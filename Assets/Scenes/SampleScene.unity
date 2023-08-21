@@ -711,7 +711,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 614775191}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1205505727}
+        m_TargetAssemblyTypeName: IdleManager, Assembly-CSharp
+        m_MethodName: BuyOfflineEarnings
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &614775191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1141,7 +1153,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 928184077}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1205505727}
+        m_TargetAssemblyTypeName: IdleManager, Assembly-CSharp
+        m_MethodName: CollectDoubleMoney
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &928184077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1263,7 +1287,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 942066003}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1205505727}
+        m_TargetAssemblyTypeName: IdleManager, Assembly-CSharp
+        m_MethodName: BuyStrength
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &942066003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1600,6 +1636,7 @@ GameObject:
   - component: {fileID: 1205505726}
   - component: {fileID: 1205505725}
   - component: {fileID: 1205505727}
+  - component: {fileID: 1205505728}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1710,6 +1747,34 @@ MonoBehaviour:
   offlineEarningsCost: 0
   wallet: 0
   totalGain: 0
+--- !u!114 &1205505728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205505724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69fa67cf07016d043affe0deea4e3995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endScreen: {fileID: 1005263596}
+  gameScreen: {fileID: 128062081}
+  mainScreen: {fileID: 1505082691}
+  returnScreen: {fileID: 1343613156}
+  lengthButton: {fileID: 1803284040}
+  strengthButton: {fileID: 942066002}
+  offlineButton: {fileID: 614775190}
+  gameScreenMoney: {fileID: 1183153779}
+  lenghtCostText: {fileID: 1904401335}
+  lengthValueText: {fileID: 569207852}
+  strengthCostText: {fileID: 544026651}
+  strengthValueText: {fileID: 642698795}
+  offlineCostText: {fileID: 2022672475}
+  offlineValueText: {fileID: 1348128740}
+  endScreenMoney: {fileID: 638700961}
+  returnScreenMoney: {fileID: 1718888703}
 --- !u!1 &1208022835
 GameObject:
   m_ObjectHideFlags: 0
@@ -2364,7 +2429,7 @@ GameObject:
   - component: {fileID: 1718888704}
   - component: {fileID: 1718888703}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: TotalManeyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2546,7 +2611,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1803284041}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1205505727}
+        m_TargetAssemblyTypeName: IdleManager, Assembly-CSharp
+        m_MethodName: BuyLength
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1803284041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2743,7 +2820,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1854689866}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1205505727}
+        m_TargetAssemblyTypeName: IdleManager, Assembly-CSharp
+        m_MethodName: CollectMoney
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1854689866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2944,7 +3033,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1956181009}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1205505727}
+        m_TargetAssemblyTypeName: IdleManager, Assembly-CSharp
+        m_MethodName: CollectMoney
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1956181009
 MonoBehaviour:
   m_ObjectHideFlags: 0
