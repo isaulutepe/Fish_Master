@@ -46,8 +46,8 @@ public class Hook : MonoBehaviour
     }
     public void StartFishing()
     {
-        _length = -50;//IdleManager dan gelecek.Kanca uzunlugu sürekli negatif olamlý çünkü kanca hep aþaðý inecek.
-        _strength = 3; //Güç IdleManager dan gelecek sonra güncellenecek
+        _length = IdleManager.instance.length - 20;//IdleManager dan gelecek.Kanca uzunlugu sürekli negatif olamlý çünkü kanca hep aþaðý inecek.
+        _strength = IdleManager.instance.strength; //Güç IdleManager dan gelecek sonra güncellenecek
         _fishCount = 0;
         float time = (-_length) * 0.1f;
         //DoTween ile kamera hareket kontrolünü saðlamak için.
@@ -68,6 +68,7 @@ public class Hook : MonoBehaviour
                 }
             });
         });
+        ScreensManager.Instance.ChanegeScreen(Screens.GAME);
         _coll.enabled = false;
         _canMove = true;
         _hookedFishes.Clear();
@@ -88,13 +89,15 @@ public class Hook : MonoBehaviour
         {
             transform.position = Vector2.down * 6;
             _coll.enabled = true;
-            float num = 0;
+            int num = 0;
             for (int i = 0; i < _hookedFishes.Count; i++)
             {
                 _hookedFishes[i].transform.SetParent(null);
                 _hookedFishes[i].ResetFish();
-                num += _hookedFishes[i].Type.price;
+                num += Convert.ToInt32(_hookedFishes[i].Type.price);
             }
+            IdleManager.instance.totalGain = num;
+            ScreensManager.Instance.ChanegeScreen(Screens.END);
         });
     }
     private void OnTriggerEnter2D(Collider2D collision)
